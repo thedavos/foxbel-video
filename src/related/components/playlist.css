@@ -1,0 +1,23 @@
+.sidebarPlaylist {
+    overflow: auto;
+}
+
+.title {
+    color: white;
+}
+
+.playlist {
+    padding: 0 20px;
+}
+
+.playlist-item {
+    color: white;
+}
+
+.playlist-item a {
+    color: white;
+    text-decoration: none;
+    font-size: .8em;
+    display: block;
+    margin-bottom: 1em;
+} 

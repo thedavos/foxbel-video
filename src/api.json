@@ -141,6 +141,33 @@
         }
       ]
     }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "name": "Beatriz Alonso",
+      "cover": "https://randomuser.me/api/portraits/thumb/women/17.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Iris Ahonen",
+      "cover": "https://randomuser.me/api/portraits/thumb/women/92.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Max Davies",
+      "cover": "https://randomuser.me/api/portraits/thumb/men/36.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Travis Davidson",
+      "cover": "https://randomuser.me/api/portraits/thumb/women/17.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Vilho Mattila",
+      "cover": "https://randomuser.me/api/portraits/thumb/men/34.jpg"
+    }
   ]
 }
 

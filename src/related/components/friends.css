@@ -1,0 +1,33 @@
+.sidebarFriendsList {
+    overflow: auto;
+}
+
+.title {
+    color: white;
+}
+
+.playlistFriends {
+    padding: 0;
+}
+
+.playlistFriends-item {
+    color: white;
+    list-style: none;
+    display: flex;
+    margin-bottom: 1em;
+    font-size: .8em;
+}
+
+.playlistFriends-item a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.playlistFriends-item img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

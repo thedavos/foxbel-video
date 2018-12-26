@@ -4,7 +4,7 @@
   "description": "Foxbel Video is a platform where users can watch videos",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --env development",
+    "dev": "webpack-dev-server --open --env development",
     "build": "webpack --env production"
   },
   "keywords": [],

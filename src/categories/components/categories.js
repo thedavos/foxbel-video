@@ -6,7 +6,7 @@ import './categories.css'
 function Categories(props) {
 
     const { categories, handleOpenModal } = props
-
+    console.log(categories)
     return (
         <div className="Categories">
         <Search />

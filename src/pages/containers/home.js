@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HomeLayout from '../components/home-layout';
 import Categories from '../../categories/components/categories';
-import Related from '../components/related';
+import Related from '../../related/components/related';
 import ModalContainer from '../../widgets/containers/modal'
 import Modal from '../../widgets/components/modal'
 import HandleError from '../../error/containers/handle-error'
@@ -28,12 +28,12 @@ class Home extends Component {
 
     render() {
 
-        const { categories } = this.props.data
-
+        const { categories, friends } = this.props.data
+        
         return (
             <HandleError>
                 <HomeLayout>
-                    <Related />
+                    <Related categories={categories} friends={friends} />
                     <Categories categories={categories} handleOpenModal={this.handleOpenModal}/>
                     {
                         this.state.modalVisible &&
