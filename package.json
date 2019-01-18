@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "davidvs <davidvargas.d45@gmail.com> (git@github.com:Davidvd45/platzim.git)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
@@ -37,7 +37,10 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
+    "normalizr": "^3.3.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-redux": "^5.0.6",
+    "redux": "^4.0.1"
   }
 }

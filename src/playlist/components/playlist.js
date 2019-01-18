@@ -1,21 +1,22 @@
-import React from 'react'
-import Media from './media'
-import './playlist.css'
+import React from "react";
+import MediaContainer from "../containers/media";
+import "./playlist.css";
 
 function Playlist(props) {
-    const { playlist, handleOpenModal } = props
-
-    return (
-        <div className="Playlist">
-            {
-                playlist.map(item => {
-                    return (
-                        <Media {...item} key={item.id} handleOpenModal={handleOpenModal}/>
-                    )
-                })
-            }
-        </div>
-    )
+  const { playlist, handleOpenModal } = props;
+  return (
+    <div className="Playlist">
+      {playlist.map(mediaId => {
+        return (
+          <MediaContainer
+            key={mediaId}
+            id={mediaId}
+            handleOpenModal={handleOpenModal}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
-export default Playlist
+export default Playlist;
