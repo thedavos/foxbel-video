@@ -4,23 +4,14 @@ import "normalize.css";
 import Home from "../pages/containers/home";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import reducer from "../reducers/data";
-import data from "../schemas";
+import reducer from "../reducers";
+import { Map as map } from "immutable";
 
 // Creating Redux Store
 const enhancer =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const initialState = {
-  data: {
-    entities: data.entities,
-    categories: data.result.categories,
-    friends: data.result.friends
-  },
-  search: []
-};
-
-const store = createStore(reducer, initialState, enhancer);
+const store = createStore(reducer, map(), enhancer);
 
 // react sive para crear componentes
 // reactDOM para renderizar y ponerlos en algún lugar

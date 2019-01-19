@@ -13,7 +13,7 @@ class MediaContainer extends PureComponent {
   };
 
   render() {
-    return <Media {...this.props.data} handleClick={this.handleClick} />;
+    return <Media {...this.props.data.toJS()} handleClick={this.handleClick} />;
   }
 }
 
@@ -26,7 +26,11 @@ Media.propTypes = {
 
 const mapStateToProps = (state, props) => {
   return {
-    data: state.data.entities.media[props.id]
+    data: state
+      .get("data")
+      .get("entities")
+      .get("media")
+      .get(props.id)
   };
 };
 

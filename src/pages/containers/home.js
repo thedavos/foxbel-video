@@ -56,18 +56,32 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  const categories = state.data.categories.map(
-    categoryId => state.data.entities.categories[categoryId]
-  );
+  const categories = state
+    .get("data")
+    .get("categories")
+    .map(categoryId =>
+      state
+        .get("data")
+        .get("entities")
+        .get("categories")
+        .get(categoryId)
+    );
 
-  const friends = state.data.friends.map(
-    friendId => state.data.entities.friends[friendId]
-  );
+  const friends = state
+    .get("data")
+    .get("friends")
+    .map(friendId =>
+      state
+        .get("data")
+        .get("entities")
+        .get("friends")
+        .get(friendId)
+    );
 
   return {
     categories,
     friends,
-    search: state.search
+    search: state.get("data").get("search")
   };
 };
 

@@ -1,5 +1,16 @@
-function data(state, action) {
-  const { media } = state.data.entities;
+import schema from "../schemas";
+import { fromJS } from "immutable";
+
+const initialState = fromJS({
+  entities: schema.entities,
+  categories: schema.result.categories,
+  friends: schema.result.friends,
+  search: []
+});
+
+function data(state = initialState, action) {
+  const { media } = state.get("entities");
+  console.log(media);
   switch (action.type) {
     case "SEARCH_VIDEO": {
       const query = action.payload.query.toLowerCase().trim();
