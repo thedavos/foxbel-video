@@ -21,6 +21,7 @@ function Categories(props) {
         return (
           <Category
             key={item.get("id")}
+            id={item.get("id")}
             {...item.toJS()}
             handleOpenModal={handleOpenModal}
           />

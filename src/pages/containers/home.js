@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { List as list } from "immutable";
 import HomeLayout from "../components/home-layout";
 import Categories from "../../categories/components/categories";
 import Related from "../../related/components/related";
@@ -9,21 +10,18 @@ import HandleError from "../../error/containers/handle-error";
 import VideoPlayer from "../../player/containers/video-player";
 
 class Home extends Component {
-  state = {
-    modalVisible: false
-  };
-
-  handleOpenModal = media => {
-    console.log(media);
-    this.setState({
-      modalVisible: true,
-      media
+  handleOpenModal = id => {
+    this.props.dispatch({
+      type: "OPEN_MODAL",
+      payload: {
+        mediaId: id
+      }
     });
   };
 
-  handleModalClose = ev => {
-    this.setState({
-      modalVisible: false
+  handleModalClose = event => {
+    this.props.dispatch({
+      type: "CLOSE_MODAL"
     });
   };
 
@@ -38,14 +36,10 @@ class Home extends Component {
             handleOpenModal={this.handleOpenModal}
             search={search}
           />
-          {this.state.modalVisible && (
+          {this.props.modal.get("visibility") && (
             <ModalContainer>
               <Modal handleClick={this.handleModalClose}>
-                <VideoPlayer
-                  autoplay
-                  src={this.state.media.src}
-                  title={this.state.media.title}
-                />
+                <VideoPlayer autoplay id={this.props.modal.get("mediaId")} />
               </Modal>
             </ModalContainer>
           )}
@@ -78,10 +72,34 @@ const mapStateToProps = state => {
         .get(friendId)
     );
 
+  let searchResults = list();
+  const search = state.get("data").get("search");
+  if (search) {
+    const mediaList = state
+      .get("data")
+      .get("entities")
+      .get("media");
+    searchResults = mediaList
+      .filter(
+        media =>
+          media
+            .get("author")
+            .toLowerCase()
+            .trim()
+            .includes(search) ||
+          media
+            .get("title")
+            .toLowerCase()
+            .trim()
+            .includes(search)
+      )
+      .toList();
+  }
   return {
     categories,
     friends,
-    search: state.get("data").get("search")
+    search: searchResults,
+    modal: state.get("modal")
   };
 };
 
