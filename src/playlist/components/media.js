@@ -11,9 +11,9 @@ const Media = props => (
         width={260}
         height={160}
       />
-      <h3 className="Media-title"> {props.title} </h3>
-      <p className="Media-author"> {props.author} </p>
     </div>
+    <h3 className="Media-title"> {props.title} </h3>
+    <p className="Media-author"> {props.author} </p>
   </div>
 );
 

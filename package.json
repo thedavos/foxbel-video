@@ -17,7 +17,6 @@
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.4.4",
     "babel-loader": "^8.0.5",
-    "babel-plugin-extensible-destructuring": "^4.3.0",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.8",
@@ -37,14 +36,18 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "extensible-runtime": "^4.1.0",
     "immutable": "^4.0.0-rc.12",
     "normalize.css": "^8.0.1",
     "normalizr": "^3.3.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^5.0.6",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-immutable": "^4.0.0"
+    "redux-devtools-extension": "^2.13.7",
+    "redux-immutable": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   }
 }

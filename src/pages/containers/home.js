@@ -8,25 +8,20 @@ import ModalContainer from "../../widgets/containers/modal";
 import Modal from "../../widgets/components/modal";
 import HandleError from "../../error/containers/handle-error";
 import VideoPlayer from "../../player/containers/video-player";
+import * as actions from "../../actions/actions";
+import { bindActionCreators } from "redux";
 
 class Home extends Component {
   handleOpenModal = id => {
-    this.props.dispatch({
-      type: "OPEN_MODAL",
-      payload: {
-        mediaId: id
-      }
-    });
+    this.props.actions.openModal(id);
   };
 
-  handleModalClose = event => {
-    this.props.dispatch({
-      type: "CLOSE_MODAL"
-    });
+  handleModalClose = () => {
+    this.props.actions.closeModal();
   };
 
   render() {
-    const { categories, friends, search } = this.props;
+    const { categories, friends, search, isLoading } = this.props;
     return (
       <HandleError>
         <HomeLayout>
@@ -35,6 +30,7 @@ class Home extends Component {
             categories={categories}
             handleOpenModal={this.handleOpenModal}
             search={search}
+            isLoading={isLoading}
           />
           {this.props.modal.get("visibility") && (
             <ModalContainer>
@@ -51,14 +47,9 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   const categories = state
-    .get("data")
-    .get("categories")
+    .getIn(["data", "categories"])
     .map(categoryId =>
-      state
-        .get("data")
-        .get("entities")
-        .get("categories")
-        .get(categoryId)
+      state.getIn(["data", "entities", "categories", categoryId])
     );
 
   const friends = state
@@ -99,8 +90,18 @@ const mapStateToProps = state => {
     categories,
     friends,
     search: searchResults,
-    modal: state.get("modal")
+    modal: state.get("modal"),
+    isLoading: state.get("isLoading").get("active")
   };
 };
 
-export default connect(mapStateToProps)(Home);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

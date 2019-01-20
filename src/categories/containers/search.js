@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import Search from "../../widgets/components/search";
 import { connect } from "react-redux";
+import Search from "../../widgets/components/search";
+import { bindActionCreators } from "redux";
+import * as actions from "../../actions/actions";
 
 class SearchContainer extends Component {
   state = {
@@ -10,12 +12,8 @@ class SearchContainer extends Component {
   handleSubmit = ev => {
     ev.preventDefault();
     console.log(this.input.value);
-    this.props.dispatch({
-      type: "SEARCH_VIDEO",
-      payload: {
-        query: this.input.value
-      }
-    });
+    const query = this.input.value;
+    this.props.actions.searchAsyncVideo(query);
   };
 
   setInputRef = el => {
@@ -40,4 +38,13 @@ class SearchContainer extends Component {
   }
 }
 
-export default connect()(SearchContainer);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SearchContainer);

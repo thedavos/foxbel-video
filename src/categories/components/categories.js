@@ -10,6 +10,7 @@ function Categories(props) {
   return (
     <div className="Categories">
       <Search />
+      {props.isLoading && <p>Buscando tus videos favoritos</p>}
       {search.map(item => (
         <MediaContainer
           key={item.get("id")}
