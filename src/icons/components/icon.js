@@ -1,20 +1,19 @@
-import React from 'react'
+import React from "react";
 
-function Icon (props) {
-    const {
-        color, 
-        size
-    } = props
-    return (
-        <svg
-            fill={color}
-            width={size}
-            height={size}
-            viewBox="0 0 32 32"
-        >
-            { props.children }
-        </svg>
-    )
+function Icon(props) {
+  const { color, size, className, viewBox, handleOptionsClick } = props;
+  return (
+    <svg
+      fill={color}
+      width={size}
+      height={size}
+      viewBox={viewBox}
+      className={className}
+      onClick={handleOptionsClick}
+    >
+      {props.children}
+    </svg>
+  );
 }
 
-export default Icon
+export default Icon;

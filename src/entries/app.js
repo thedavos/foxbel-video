@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { render } from "react-dom";
 import "normalize.css";
 import Home from "../pages/containers/home";
@@ -9,6 +9,7 @@ import { Map as map } from "immutable";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { BrowserRouter } from "react-router-dom";
 
 // function logger({ getState, dispatch }) {
 //   return next => {
@@ -37,8 +38,12 @@ const homeContainer = document.getElementById("home-container");
 
 /* ReactDOM.render(qué renderizo, dónde lo hago)*/
 render(
-  <Provider store={store}>
-    <Home />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <Fragment>
+        <Home />
+      </Fragment>
+    </Provider>
+  </BrowserRouter>,
   homeContainer
 );

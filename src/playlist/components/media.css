@@ -12,6 +12,7 @@
 }
 
 .Media-cover {
+  position: relative;
   transition: 0.3s;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   height: 160px;
@@ -31,4 +32,11 @@
   font-size: 12px;
   margin: 5px 0 0 0;
   color: #828282;
+}
+
+.Media-options {
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 8px;
 }
