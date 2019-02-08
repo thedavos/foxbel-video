@@ -1,10 +1,8 @@
 .Media {
   cursor: pointer;
-  margin-right: 15px;
   display: inline-block;
   width: 260px;
   vertical-align: top;
-  margin-bottom: 1.5em;
 }
 
 .Media:hover .Media-cover {
@@ -32,11 +30,4 @@
   font-size: 12px;
   margin: 5px 0 0 0;
   color: #828282;
-}
-
-.Media-options {
-  display: block;
-  position: absolute;
-  right: 8px;
-  top: 8px;
 }

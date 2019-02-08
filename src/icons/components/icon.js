@@ -1,7 +1,7 @@
 import React from "react";
 
 function Icon(props) {
-  const { color, size, className, viewBox, handleOptionsClick } = props;
+  const { color, size, className, viewBox } = props;
   return (
     <svg
       fill={color}
@@ -9,7 +9,6 @@ function Icon(props) {
       height={size}
       viewBox={viewBox}
       className={className}
-      onClick={handleOptionsClick}
     >
       {props.children}
     </svg>

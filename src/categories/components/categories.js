@@ -5,7 +5,7 @@ import MediaContainer from "../../playlist/containers/media";
 import "./categories.css";
 
 function Categories(props) {
-  const { categories, handleOpenModal, search } = props;
+  const { categories, handleOpenModal, search, handleOpenMediaOptions } = props;
 
   return (
     <div className="Categories">
@@ -25,6 +25,7 @@ function Categories(props) {
             id={item.get("id")}
             {...item.toJS()}
             handleOpenModal={handleOpenModal}
+            handleOpenMediaOptions={handleOpenMediaOptions}
           />
         );
       })}

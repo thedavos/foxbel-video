@@ -20,6 +20,11 @@ class Home extends Component {
     this.props.actions.closeModal();
   };
 
+  handleOpenMediaOptions = () => {
+    // this.props.acdomtions.openMediaOptions(id)
+    console.log("works");
+  };
+
   render() {
     const { categories, friends, search, isLoading } = this.props;
     return (
@@ -29,6 +34,7 @@ class Home extends Component {
           <Categories
             categories={categories}
             handleOpenModal={this.handleOpenModal}
+            handleOpenMediaOptions={this.handleOpenMediaOptions}
             search={search}
             isLoading={isLoading}
           />

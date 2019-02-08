@@ -8,26 +8,12 @@ class MediaContainer extends PureComponent {
     ...this.props
   };
 
-  handleClick = event => {
-    console.log(event.target);
-
-    if (event.target) {
-      this.state.handleOpenModal(this.props.id);
-    }
-  };
-
-  handleOptionsClick = event => {
-    console.log(event.target, "works");
+  handleClick = () => {
+    this.state.handleOpenModal(this.props.id);
   };
 
   render() {
-    return (
-      <Media
-        {...this.props.data.toJS()}
-        handleClick={this.handleClick}
-        handleOptionsClick={this.handleOptionsClick}
-      />
-    );
+    return <Media {...this.props.data.toJS()} handleClick={this.handleClick} />;
   }
 }
 

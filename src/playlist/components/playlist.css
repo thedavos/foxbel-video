@@ -3,3 +3,17 @@
   display: flex;
   overflow-y: hidden;
 }
+
+.Media-container {
+  position: relative;
+  margin-left: 15px;
+  margin-bottom: 1.5em;
+}
+
+.Media-options {
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+}

@@ -1,5 +1,14 @@
 import * as type from "../action-types/Actiontype";
 
+export function openMediaOptions(mediaId) {
+  return {
+    type: type.OPEN_MEDIA_OPTIONS,
+    payload: {
+      mediaId
+    }
+  };
+}
+
 export function openModal(mediaId) {
   return {
     type: type.OPEN_MODAL,
